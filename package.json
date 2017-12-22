@@ -1,0 +1,27 @@
+{
+  "name": "tic-tac-toe_nodejs",
+  "version": "1.0.0",
+  "description": "PracticTic Tac Toe application on Node Js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alstas/tic-tac-toe.git"
+  },
+  "keywords": [
+    "sandbox"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alstas/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/alstas/tic-tac-toe#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "jest": "^22.0.4"
+  }
+}
