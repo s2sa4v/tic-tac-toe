@@ -24,7 +24,7 @@ describe('/utils', () => {
       });
 
       test('returns actual value', () => {
-        expect(utils.createBoard().get(0)).toEqual('-');
+        expect(utils.createBoard().get(1)).toEqual('-');
       });
     });
 
@@ -47,6 +47,12 @@ describe('/utils', () => {
       test('has such method', () => {
         expect(utils.createBoard()).toHaveProperty('print');
       })
+    });
+
+    describe('.length', () => {
+      test('returns valid length', () => {
+        expect(utils.createBoard().length()).toEqual(9);
+      });
     });
   });
 
@@ -80,7 +86,7 @@ describe('/utils', () => {
         const marker = 'm';
         const board = utils.createBoard();
 
-        set.map(section => board.setTurn(section, marker));
+        set.map(section => board.setTurn(section+1, marker));
 
         expect(utils.isWinner(board, marker)).toEqual(true);
       });

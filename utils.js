@@ -45,17 +45,18 @@ function isWinner(board, marker) {
   }
 
   function hasMarker(section) {
-    return board.get(section) === marker;
+    return board.get(section+1) === marker;
   }
 }
 
 const BoardIdentity = (board, emptySlotChar = '-') => ({
   emptySlotChar,
-  get: (v = 0) => board[v],
+  get: (v = 1) => board[v - 1],
   toString: () => printBoard(board),
   setTurn: (turn, marker) => {
-    board[turn] = marker;
+    board[turn - 1] = marker;
   },
+  length: () => board.length,
   print: () => printBoard(board),
 });
 
