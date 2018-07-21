@@ -21,12 +21,14 @@
     "url": "https://github.com/alstas/tic-tac-toe/issues"
   },
   "homepage": "https://github.com/alstas/tic-tac-toe#readme",
-  "dependencies": {},
+  "dependencies": {
+    "hoek": "^5.0.3"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "jest": "^22.0.4"
   }
 }
