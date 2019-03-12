@@ -26,6 +26,14 @@ export default function* app() {
     // print board
     board.toString();
 
+    const isInvalidTurn = turn => (
+      isNaN(turn)
+      || turn > 9
+      || turn < 1
+      || board.get(turn) === computerCharacter
+      || !board.isVacant(turn)
+    );
+
     while (gameIsInProcess) {
 
       // do user turn
@@ -33,7 +41,7 @@ export default function* app() {
 
       while (userTurn < 1) {
         userTurn = yield ask('It\'s your turn. Choose one of the slots in the range from 1 to 9 that is empty:\n');
-        if (isNaN(userTurn) || userTurn > 9 || userTurn < 1 || board.get(userTurn) === computerCharacter) {
+        if (isInvalidTurn(userTurn)) {
           userTurn = 0;
         }
       }
