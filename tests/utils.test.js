@@ -1,4 +1,22 @@
-import utils from '../utils';
+import utils, { createBoard } from '../utils';
+
+expect.extend({
+  toBeA(received, argument) {
+    const initialType = typeof received;
+    const type = initialType === 'object'
+      ? Array.isArray(received)
+        ? 'array'
+        : initialType
+      : initialType;
+    return type === argument ? {
+      message: () => `expected ${received} to be type ${argument}`,
+      pass: true,
+    } : {
+      message: () => `expected ${received} to be type ${argument}`,
+      pass: false,
+    };
+  },
+});
 
 describe('/utils', () => {
   describe('#.runGeneratorWithPromises', () => {
@@ -52,6 +70,24 @@ describe('/utils', () => {
     describe('.length', () => {
       test('returns valid length', () => {
         expect(utils.createBoard().length()).toEqual(9);
+      });
+    });
+
+    describe('#isVacant', () => {
+      test('to a be a function', () => {
+        expect(createBoard().isVacant).toBeA('function');
+      });
+
+      test('it should return `true` when slot is not taken', () => {
+        const board = utils.createBoard();
+        board.setTurn(1, 'x');
+        expect(board.isVacant(2)).toBe(true);
+      });
+
+      test('it should return `false` when slot is taken', () => {
+        const board = utils.createBoard();
+        board.setTurn(1, 'x');
+        expect(board.isVacant(1)).toBe(false);
       });
     });
   });

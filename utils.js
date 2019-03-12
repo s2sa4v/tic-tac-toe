@@ -45,20 +45,25 @@ function isWinner(board, marker) {
   }
 
   function hasMarker(section) {
-    return board.get(section+1) === marker;
+    return board.get(section + 1) === marker;
   }
 }
 
-const BoardIdentity = (board, emptySlotChar = '-') => ({
-  emptySlotChar,
-  get: (v = 1) => board[v - 1],
-  toString: () => printBoard(board),
-  setTurn: (turn, marker) => {
-    board[turn - 1] = marker;
-  },
-  length: () => board.length,
-  print: () => printBoard(board),
-});
+const BoardIdentity = (board, emptySlotChar = '-') => {
+  const get = (v = 1) => board[v - 1];
+
+  return {
+    emptySlotChar,
+    get,
+    toString: () => printBoard(board),
+    setTurn: (turn, marker) => {
+      board[turn - 1] = marker;
+    },
+    length: () => board.length,
+    print: () => printBoard(board),
+    isVacant: (slot) => get(slot) === emptySlotChar,
+  };
+};
 
 export function createBoard(emptyCharacter = '-') {
   let board = Array(9).fill(emptyCharacter);
@@ -93,14 +98,14 @@ export function runGeneratorWithPromises(generator) {
 }
 
 function printBoard(board) {
-  process.stdout.write("\n");
+  process.stdout.write('\n');
 
   for (let i = 0; i < 9; i++) {
     process.stdout.write(`| ${board[i]} `);
     if ((i + 1) % 3 === 0) {
-      process.stdout.write("|\n");
+      process.stdout.write('|\n');
     }
   }
 
-  process.stdout.write("\n");
+  process.stdout.write('\n');
 }
