@@ -1,4 +1,4 @@
-import utils, { ask, createBoard } from "./utils";
+import utils, { ask, createBoard } from './utils';
 
 const emptyCharacter = '-';
 
