@@ -32,8 +32,8 @@ export default function* app() {
       let userTurn = 0;
 
       while (userTurn < 1) {
-        if (userTurn > 9 || userTurn < 1 || board.get(userTurn) === computerCharacter) {
         userTurn = yield ask('It\'s your turn. Choose one of the slots in the range from 1 to 9 that is empty:\n');
+        if (isNaN(userTurn) || userTurn > 9 || userTurn < 1 || board.get(userTurn) === computerCharacter) {
           userTurn = 0;
         }
       }
