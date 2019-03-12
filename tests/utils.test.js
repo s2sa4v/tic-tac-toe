@@ -64,7 +64,7 @@ describe('/utils', () => {
     describe('.print', () => {
       test('has such method', () => {
         expect(utils.createBoard()).toHaveProperty('print');
-      })
+      });
     });
 
     describe('.length', () => {
@@ -104,7 +104,7 @@ describe('/utils', () => {
 
     const Identity = (val) => ({
       map: fn => Identity(fn(val)),
-      toString: () => ``
+      toString: () => ``,
     });
     const sets = [
       [0, 1, 2],
@@ -122,7 +122,7 @@ describe('/utils', () => {
         const marker = 'm';
         const board = utils.createBoard();
 
-        set.map(section => board.setTurn(section+1, marker));
+        set.map(section => board.setTurn(section + 1, marker));
 
         expect(utils.isWinner(board, marker)).toEqual(true);
       });

@@ -5,7 +5,7 @@ export default {
   ask,
   runGeneratorWithPromises,
   isWinner,
-}
+};
 
 function isWinner(board, marker) {
   return firstRow() || secondRow() || thirdRow()
