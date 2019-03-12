@@ -4,8 +4,6 @@ Run project:
 * Make sure that dependencies are installed by running `npm install`
 * Run project `npm start`
 
-Issues to fix:
-* User can input invalid characters as a slot number
-  * the number that already busy
-  * not a number
+Issues to fix/TODO:
 * Check/fix text in the application
+* Output empty slots numbers for user's turn
