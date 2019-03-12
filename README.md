@@ -9,5 +9,3 @@ Issues to fix:
   * the number that already busy
   * not a number
 * Check/fix text in the application
-* Fix `npm list` issues
-* Fix `npm audit` issues
