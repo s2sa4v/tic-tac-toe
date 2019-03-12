@@ -9,12 +9,12 @@ export default function* app() {
     console.log('Tic Tac Toe Game');
 
     // let's choose characters first
-    let userCharacter = yield ask('Choose your character to play');
+    let userCharacter = yield ask('Choose your character to play:\n');
     userCharacter = userCharacter.toString().slice(0, 1);
     let computerCharacter;
 
     while (!computerCharacter) {
-      computerCharacter = yield ask('Choose a character for computer');
+      computerCharacter = yield ask('Choose a character for computer:\n');
       computerCharacter = computerCharacter.toString().slice(0, 1);
       if (!computerCharacter || computerCharacter === userCharacter) {
         computerCharacter = false;
@@ -32,8 +32,8 @@ export default function* app() {
       let userTurn = 0;
 
       while (userTurn < 1) {
-        userTurn = yield ask('It\'s your turn. Choose one of the range from 1 to 9 that is empty');
         if (userTurn > 9 || userTurn < 1 || board.get(userTurn) === computerCharacter) {
+        userTurn = yield ask('It\'s your turn. Choose one of the slots in the range from 1 to 9 that is empty:\n');
           userTurn = 0;
         }
       }
